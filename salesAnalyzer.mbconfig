@@ -1,0 +1,163 @@
+﻿{
+  "Scenario": "Forecasting",
+  "DataSource": {
+    "Type": "TabularFile",
+    "Version": 1,
+    "FilePath": "C:\\Users\\ACER\\Documents\\Machine Learning Datasets\\Sales_Forcasting_with_ML-3523a76623208bfdf4fd357786c4d25a7c5d5961\\Sales_Forcasting_with_ML-3523a76623208bfdf4fd357786c4d25a7c5d5961\\train.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "Date",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "number_sold",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 0.29233856991911272,
+        "RuntimeInSeconds": 2.441,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 36,
+            "SeriesLength": 1382,
+            "TrainSize": 230090,
+            "Horizon": 7,
+            "OutputColumnName": "number_sold",
+            "InputColumnName": "number_sold",
+            "ConfidenceLowerBoundColumn": "number_sold_LB",
+            "ConfidenceUpperBoundColumn": "number_sold_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 0.33935537765557072,
+        "RuntimeInSeconds": 1.991,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 2,
+            "SeriesLength": 10,
+            "TrainSize": 230090,
+            "Horizon": 7,
+            "OutputColumnName": "number_sold",
+            "InputColumnName": "number_sold",
+            "ConfidenceLowerBoundColumn": "number_sold_LB",
+            "ConfidenceUpperBoundColumn": "number_sold_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 0.33935537765557072,
+        "RuntimeInSeconds": 1.739,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 2,
+            "SeriesLength": 1879,
+            "TrainSize": 230090,
+            "Horizon": 7,
+            "OutputColumnName": "number_sold",
+            "InputColumnName": "number_sold",
+            "ConfidenceLowerBoundColumn": "number_sold_LB",
+            "ConfidenceUpperBoundColumn": "number_sold_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 0.33935537765557072,
+        "RuntimeInSeconds": 1.745,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 2,
+            "SeriesLength": 3420,
+            "TrainSize": 230090,
+            "Horizon": 7,
+            "OutputColumnName": "number_sold",
+            "InputColumnName": "number_sold",
+            "ConfidenceLowerBoundColumn": "number_sold_LB",
+            "ConfidenceUpperBoundColumn": "number_sold_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 0.33935537765557072,
+        "RuntimeInSeconds": 1.736,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 2,
+            "SeriesLength": 843,
+            "TrainSize": 230090,
+            "Horizon": 7,
+            "OutputColumnName": "number_sold",
+            "InputColumnName": "number_sold",
+            "ConfidenceLowerBoundColumn": "number_sold_LB",
+            "ConfidenceUpperBoundColumn": "number_sold_UB"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "ForecastBySsa"
+    },
+    "Schema": "e0",
+    "MetricName": "MAPE",
+    "ModelFilePath": "C:\\Users\\ACER\\source\\repos\\SalesAnalyzer\\salesAnalyzer.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 4,
+  "TrainingOption": {
+    "Version": 2,
+    "Type": "ForecastingTrainingOption",
+    "TrainingTime": 10,
+    "UseCrossValidation": false,
+    "OptimizeMetric": "MAPE",
+    "Horizon": 7,
+    "TimeColumn": "Date",
+    "LabelColumn": "number_sold",
+    "UseDefaultIndex": false,
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "TrainValidateSplitValidationOption",
+      "SplitRatio": 0.2
+    }
+  }
+}
